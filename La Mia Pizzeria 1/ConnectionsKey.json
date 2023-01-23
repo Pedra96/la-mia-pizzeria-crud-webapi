@@ -1,0 +1,6 @@
+﻿{
+  "ConnectionStrings": {
+    "PizzeriaDatabase": "Data Source=localhost;Database=PizzeriaDB;Integrated Security=True;TrustServerCertificate=True"
+  }
+
+}
