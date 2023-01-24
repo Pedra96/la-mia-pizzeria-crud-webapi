@@ -1,5 +1,4 @@
 ﻿function searchItem() {
-    console.log("enter");
     let searchValue = document.getElementById("SearchBar").value;
     loadList(searchValue);
 }
@@ -33,7 +32,7 @@ function init() {
                                       <img src="${pizza.image}" class="card-img-top" alt="...">
                                       <div class="card-body">
                                         <h5 class="card-title">${pizza.title}</h5>
-                                         <a href="/Pizze/Details/${pizza.id}"
+                                         <a href="/Pizza/DetailsApi/${pizza.id}"
                                         <p class="card-text">${pizza.description}</p>
                                       </div>
                                       </a>
@@ -42,6 +41,7 @@ function init() {
                              `;
             });
         }
+        document.getElementById("spinner-loader").classList.add('d-none');
     }).catch((error) => {
         console.log(error);
     });
@@ -81,7 +81,7 @@ function loadList(searchString) {
                                       <img src="${pizza.image}" class="card-img-top" alt="...">
                                       <div class="card-body">
                                         <h5 class="card-title">${pizza.title}</h5>
-                                         <a href="/Pizze/Details/${pizza.id}"
+                                         <a href="/Pizza/DetailsApi/${pizza.id}"
                                         <p class="card-text">${pizza.description}</p>
                                       </div>
                                       </a>
@@ -89,7 +89,8 @@ function loadList(searchString) {
                                 </div>
                              `;
             });
-        }
+           
+            }
     }).catch((error) => {
         console.log(error);
     });

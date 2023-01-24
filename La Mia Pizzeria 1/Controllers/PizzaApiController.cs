@@ -28,11 +28,17 @@ namespace La_Mia_Pizzeria_1.Controllers {
 
         [HttpGet("{id}")]
         public IActionResult Get(int id) {
+
             using PizzeriaContext db = new PizzeriaContext();
+
             Pizza pizza= db.Pizze.Where(x=>x.Id== id).FirstOrDefault();
+
             if(pizza == null) {
+
                 return NotFound("La pizza con questo id non è stata trovata");
+
             }
+
             return Ok(pizza);
         }
     }

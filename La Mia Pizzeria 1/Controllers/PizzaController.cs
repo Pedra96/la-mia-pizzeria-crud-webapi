@@ -23,7 +23,10 @@ namespace La_Mia_Pizzeria_1.Controllers {
         public IActionResult Details(int id) {
             using PizzeriaContext db = new PizzeriaContext();
             //un altro modo per associale il titolo della categoria quando si richiama il database
-            var PizzaTrovata = db.Pizze.Where(x => x.Id == id).Include(PizzaTrovata => PizzaTrovata.Categoria).Include(PizzaTrovata=>PizzaTrovata.nIngredienti).FirstOrDefault();
+            var PizzaTrovata = db.Pizze.Where(x => x.Id == id)
+                .Include(PizzaTrovata => PizzaTrovata.Categoria)
+                .Include(PizzaTrovata=>PizzaTrovata.nIngredienti)
+                .FirstOrDefault();
             return View(PizzaTrovata);
             /*List<Pizza> listaDellePizze = db.Pizze.ToList();
             foreach (Pizza pizza in listaDellePizze) {
@@ -141,5 +144,14 @@ namespace La_Mia_Pizzeria_1.Controllers {
             return RedirectToAction("Index");
         }
 
-    }
+        public IActionResult DetailsApi(int id) {
+            using PizzeriaContext db = new PizzeriaContext();
+            var PizzaTrovata = db.Pizze.Where(x => x.Id == id)
+                .Include(PizzaTrovata => PizzaTrovata.Categoria)
+                .Include(PizzaTrovata => PizzaTrovata.nIngredienti)
+                .FirstOrDefault();
+            return View(PizzaTrovata);
+        }
+
+        }
 }
