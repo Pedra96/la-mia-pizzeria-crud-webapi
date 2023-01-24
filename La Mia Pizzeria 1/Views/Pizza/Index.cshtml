@@ -6,6 +6,8 @@
 <!--------------------------------------------------->
 <body>
 
+    <input type="text" class="form-control" id="SearchBar" placeholder="Search"/>
+
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -14,12 +16,12 @@
                 </div>
             </div>
         </div>
-        <div class="row js_no_post text-center d-none">
+        <div id="js_no_post" class="row text-center d-none">
             <div class="col-12">
                 <h3>Non hai inserito alcun post</h3>
             </div>
         </div>
-        <div class="row js_post_table d-none">
+        <div id="js_post_table" class="row d-none">
         </div>
     </div>
 
@@ -52,7 +54,10 @@
     
     @section Scripts{
         <script type="text/javascript">
+
             loadList();
+            document.getElementById('SearchBar').addEventListener('keyup', searchItem());
+            
         </script>
     }
 

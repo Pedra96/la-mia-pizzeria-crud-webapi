@@ -11,7 +11,7 @@ using Microsoft.SqlServer.Server;
 using System.Reflection.Metadata.Ecma335;
 
 namespace La_Mia_Pizzeria_1.Controllers {
-    //[Authorize]
+    [Authorize]
     public class PizzaController : Controller {
 
         public IActionResult Index() {
